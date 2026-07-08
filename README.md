@@ -1,98 +1,244 @@
-# AI Cold Email Generator (Monorepo)
+# 🚀 OutreachAI – AI-Powered Cold Email Generator
 
-A fully dockerized full-stack MERN application that uses AI to generate customized cold emails, LinkedIn DMs, and follow-up emails based on user prompts.
-
-## Features Added
-- **Monorepo setup**: Single `package.json` to install and run the entire stack concurrently.
-- **Docker & Docker Compose**: Bootstraps the Node API, React Frontend, and MongoDB database automatically in isolated containers.
-- **CI/CD via GitHub Actions**: Ensures that all dependencies install correctly and frontend builds continuously upon pushing changes to GitHub.
+OutreachAI is a full-stack AI-powered web application that helps users generate professional cold emails, LinkedIn outreach messages, and follow-up emails using Large Language Models (LLMs). It streamlines networking and job outreach by creating personalized, high-quality communication in seconds.
 
 ---
 
-## 🚀 How to Run Locally (Using Concurrently)
+## ✨ Features
 
-**1. Install all dependencies**  
-Run this command from the root folder (it installs root, server, and client Node dependencies):
-\`\`\`bash
-npm run install:all
-\`\`\`
+- 🔐 Secure JWT Authentication
+- 📧 Email Verification using OTP
+- 🤖 AI-Powered Email Generation
+- 💼 Personalized Cold Emails
+- 💬 LinkedIn Outreach Message Generation
+- 🔄 Follow-up Email Generation
+- 📝 Email History Dashboard
+- 📱 Responsive User Interface
+- ⚡ Fast & Modern React Frontend
 
-**2. Setup your Environment Variables**  
-- Create a `.env` in the `/server` folder based on `.env.example`. Make sure your `MONGO_URI` is correctly pointing to your preferred MongoDB instance.  
-- Create a `.env` in the `/client` folder with: `VITE_API_URL=http://localhost:5000/api`
+---
 
-**3. Run the Monorepo**  
-Start both the Frontend and Backend simultaneously:
-\`\`\`bash
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js
+- React Router
+- Axios
+- CSS3
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+- Nodemailer
+
+### AI Integration
+- Groq API
+- Llama 3.3 70B Versatile
+
+---
+
+## 📂 Project Structure
+
+```
+OutreachAI/
+│
+├── client/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+├── server/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── config/
+│   ├── server.js
+│   └── package.json
+│
+└── README.md
+```
+
+---
+
+## ⚙️ Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/kushb645outreachai.git
+```
+
+```bash
+cd outreachai
+```
+
+---
+
+### Install Dependencies
+
+#### Backend
+
+```bash
+cd server
+npm install
+```
+
+#### Frontend
+
+```bash
+cd ../client
+npm install
+```
+
+---
+
+## 🔑 Environment Variables
+
+Create a `.env` file inside the `server` folder.
+
+```env
+PORT=5000
+
+MONGODB_URI=your_mongodb_connection_string
+
+JWT_SECRET=your_random_secret_key
+
+EMAIL_USER=your_email@gmail.com
+
+EMAIL_PASS=your_google_app_password
+
+GROQ_API_KEY=your_groq_api_key
+
+FRONTEND_URL=http://localhost:5173
+```
+
+---
+
+## ▶️ Running the Project
+
+### Start Backend
+
+```bash
+cd server
 npm run dev
-\`\`\`
-The GUI will be on `http://localhost:5173` and the API firmly rooted at `http://localhost:5000`.
+```
+
+### Start Frontend
+
+```bash
+cd client
+npm run dev
+```
+
+Frontend:
+
+```
+http://localhost:5173
+```
+
+Backend:
+
+```
+http://localhost:5000
+```
 
 ---
 
-## 🐳 How to Run with Docker
+## 📸 Screenshots
 
-If you prefer using Docker, you don't even need to install Node locally. Docker Compose will spin up 3 instances automatically:
-1. React Frontend Container
-2. Node API Container
-3. MongoDB Database Container
+### Landing Page
 
-**Steps:**
-1. Be in the root folder.
-2. Ensure Docker Desktop is open and running.
-3. Build and spin up the architecture:
-   \`\`\`bash
-   docker-compose up --build
-   \`\`\`
-   *(Note: This uses the environment variables configured within the `docker-compose.yml` file. Update the secrets inside that file before running it in production).*
-
-To stop containers:
-\`\`\`bash
-docker-compose down
-\`\`\`
+> Add Screenshot Here
 
 ---
 
-## 🔁 CI/CD (GitHub Actions Pipeline)
+### Dashboard
 
-This repository includes a `.github/workflows/pipeline.yml` file. 
-
-Whenever you push to `main` (or create a Pull Request against it), GitHub Actions will automatically:
-- Checkout your code.
-- Setup Node.js v18.
-- Install Root, Client, and Server dependencies respectively.
-- Run a `npm run build` on your `/client` to ensure Vite successfully bundles the frontend. 
-
-It prevents bad pushes from making it effectively resolving broken dependencies early on.
+> Add Screenshot Here
 
 ---
 
-## Deployment Guide (Free Tier)
+### AI Email Generation
 
-### Deploying Backend on Render
+> Add Screenshot Here
 
-1. Create an account on [Render](https://render.com/).
-2. Push this whole repository to GitHub.
-3. On Render, click **New +** and select **Web Service**.
-4. Connect your GitHub repository.
-5. Configure the Web Service:
-   - **Name**: ai-cold-email-backend
-   - **Root Directory**: `server`
-   - **Environment**: Node
-   - **Build Command**: `npm install`
-   - **Start Command**: `node server.js`  *(Make sure to use node instead of nodemon for production)*
-   - **Instance Type**: Free
-6. Under **Environment Variables**, add all the variables from your `.env` file (e.g. `MONGO_URI`, `JWT_SECRET`, `AI_API_KEY`).
-7. Click **Create Web Service**.
+---
 
-### Deploying Frontend on Vercel
+### OTP Verification
 
-1. Create an account on [Vercel](https://vercel.com/).
-2. Click **Add New... > Project** and import your GitHub repository.
-3. Configure the Project:
-   - **Framework Preset**: Vite
-   - **Root Directory**: `client`
-4. Under **Environment Variables**, add:
-   - `VITE_API_URL`: Your newly minted Backend URL + `/api` (e.g., `https://ai-backend.onrender.com/api`)
-5. Click **Deploy**. Vercel will deploy your frontend seamlessly.
-6. **Important**: Remember to go back to Render and update your backend `FRONTEND_URL` Variable to the Vercel domain to dodge tricky CORS errors.
+> Add Screenshot Here
+
+---
+
+## 📌 API Endpoints
+
+### Authentication
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| POST | `/api/auth/register` | Register User |
+| POST | `/api/auth/verify-otp` | Verify Email |
+| POST | `/api/auth/login` | Login User |
+
+---
+
+### AI
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| POST | `/api/ai/generate-email` | Generate AI Email |
+| GET | `/api/ai/history` | Get Email History |
+
+---
+
+## 🔒 Authentication Flow
+
+1. User Registration
+2. OTP Verification
+3. Login
+4. JWT Token Generation
+5. Protected AI Routes
+6. Email History Storage
+
+---
+
+## 🚀 Future Improvements
+
+- AI Tone Selection
+- Multiple AI Models
+- Export Email as PDF
+- One-click Copy
+- Gmail Integration
+- Email Templates
+- Dark Mode
+- Multi-language Support
+
+---
+
+## 💡 Why OutreachAI?
+
+Finding the right words for professional networking can be difficult. OutreachAI helps users generate personalized and professional outreach emails instantly, making job applications and networking more efficient.
+
+---
+
+## 👨‍💻 Author
+
+**Kush Bhardwaj**
+
+Frontend Developer | MERN Stack Developer
+
+GitHub: https://github.com/kushb645
+
+LinkedIn: https://linkedin.com/in/kushbhardwaj01
+
+Portfolio: https://kush01.vercel.app/
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
