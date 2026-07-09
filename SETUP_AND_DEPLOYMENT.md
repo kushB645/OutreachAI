@@ -130,16 +130,7 @@ Content-Type: application/json
 }
 ```
 
-### 2. Verify OTP
-```
-POST http://localhost:5000/api/auth/verify-otp
-Content-Type: application/json
 
-{
-  "userId": "user_id_from_register",
-  "otp": "123456"
-}
-```
 
 ### 3. Login
 ```
