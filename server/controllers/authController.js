@@ -51,13 +51,15 @@ exports.registerUser = async (req, res) => {
     });
 
     // Send OTP email
-    const message = `Your OTP for verification is: ${otp}\n\nThis OTP is valid for 10 minutes.`;
-    try {
-      await sendEmail({ email: user.email, subject: 'Email Verification OTP - AI Cold Mail Generator', message });
-    } catch (error) {
-      console.log('Email sending error:', error.message);
-      // Still allow registration even if email fails
-    }
+    // const message = `Your OTP for verification is: ${otp}\n\nThis OTP is valid for 10 minutes.`;
+    // try {
+    //   await sendEmail({ email: user.email, subject: 'Email Verification OTP - AI Cold Mail Generator', message });
+    // } catch (error) {
+    //   console.log('Email sending error:', error.message);
+    //   // Still allow registration even if email fails
+    // }
+
+    console.log("Skipping email for testing");
 
     res.status(201).json({
       message: 'User registered successfully. Please verify OTP sent to your email.',
