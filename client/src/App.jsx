@@ -3,7 +3,6 @@ import { Toaster } from 'react-hot-toast';
 import Layout from './components/Layout';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import VerifyOtp from './pages/VerifyOtp';
 import Dashboard from './pages/Dashboard';
 import LandingPage from './pages/LandingPage';
 import { useAuth } from './context/AuthContext';

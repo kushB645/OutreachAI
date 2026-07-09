@@ -1,115 +1,126 @@
-# 🚀 OutreachAI – AI-Powered Cold Email Generator
+# 🚀 OutreachAI
 
-OutreachAI is a full-stack AI-powered web application that helps users generate professional cold emails, LinkedIn outreach messages, and follow-up emails using Large Language Models (LLMs). It streamlines networking and job outreach by creating personalized, high-quality communication in seconds.
+AI-powered Cold Email Generator built with the MERN Stack. Generate personalized cold emails, LinkedIn DMs, and follow-up emails using Groq AI. Users can securely register, log in, generate outreach content, and access their generation history.
+
+---
+
+## 📸 Preview
+
+> Add screenshots or a demo GIF here
 
 ---
 
 ## ✨ Features
 
-- 🔐 Secure JWT Authentication
-- 📧 Email Verification using OTP
-- 🤖 AI-Powered Email Generation
-- 💼 Personalized Cold Emails
-- 💬 LinkedIn Outreach Message Generation
-- 🔄 Follow-up Email Generation
-- 📝 Email History Dashboard
-- 📱 Responsive User Interface
-- ⚡ Fast & Modern React Frontend
+- 🔐 JWT Authentication
+- 🤖 AI-powered Cold Email Generation
+- 💼 Professional Subject Line Generator
+- 💬 LinkedIn DM Generator
+- 📧 Follow-up Email Generator
+- 📜 Email Generation History
+- 🔒 Protected API Routes
+- 📱 Responsive UI
+- ⚡ Fast REST API with Express
+- ☁️ MongoDB Atlas Database
+- 🚀 Deployable on Vercel + Render
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 - React.js
-- React Router
+- Vite
+- React Router DOM
 - Axios
-- CSS3
+- Tailwind CSS
+- React Hot Toast
 
 ### Backend
+
 - Node.js
 - Express.js
-- MongoDB
+- MongoDB Atlas
 - Mongoose
 - JWT Authentication
-- Nodemailer
-
-### AI Integration
 - Groq API
-- Llama 3.3 70B Versatile
 
 ---
 
 ## 📂 Project Structure
 
 ```
-OutreachAI/
+OutreachAI
 │
-├── client/
-│   ├── src/
-│   ├── public/
+├── client
+│   ├── src
+│   ├── public
 │   └── package.json
 │
-├── server/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── middleware/
-│   ├── config/
-│   ├── server.js
-│   └── package.json
+├── server
+│   ├── config
+│   ├── controllers
+│   ├── middleware
+│   ├── models
+│   ├── routes
+│   ├── utils
+│   └── server.js
 │
-└── README.md
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-## ⚙️ Installation
+# ⚙️ Installation
 
-### Clone Repository
+## 1. Clone Repository
 
 ```bash
-git clone https://github.com/kushb645outreachai.git
+git clone https://github.com/kushB645/OutreachAI.git
 ```
 
 ```bash
-cd outreachai
+cd OutreachAI
 ```
 
 ---
 
-### Install Dependencies
-
-#### Backend
+## 2. Install Frontend
 
 ```bash
-cd server
-npm install
+cd client
 ```
 
-#### Frontend
-
 ```bash
-cd ../client
 npm install
 ```
 
 ---
 
-## 🔑 Environment Variables
+## 3. Install Backend
 
-Create a `.env` file inside the `server` folder.
+```bash
+cd ../server
+```
+
+```bash
+npm install
+```
+
+---
+
+# 🔑 Environment Variables
+
+Create a `.env` file inside the **server** folder.
 
 ```env
 PORT=5000
 
 MONGODB_URI=your_mongodb_connection_string
 
-JWT_SECRET=your_random_secret_key
-
-EMAIL_USER=your_email@gmail.com
-
-EMAIL_PASS=your_google_app_password
+JWT_SECRET=your_secret_key
 
 GROQ_API_KEY=your_groq_api_key
 
@@ -118,127 +129,139 @@ FRONTEND_URL=http://localhost:5173
 
 ---
 
-## ▶️ Running the Project
+# ▶️ Run Locally
 
-### Start Backend
+### Backend
 
 ```bash
 cd server
 npm run dev
 ```
 
-### Start Frontend
+### Frontend
 
 ```bash
 cd client
 npm run dev
 ```
 
-Frontend:
+---
+
+# 🔐 Authentication
+
+- User Registration
+- User Login
+- JWT Authentication
+- Protected API Routes
+
+---
+
+# 🤖 AI Features
+
+The application generates:
+
+- Professional Cold Emails
+- Optimized Subject Lines
+- LinkedIn Connection Messages
+- Follow-up Emails
+
+Powered by **Groq Llama 3.3 70B Versatile**.
+
+---
+
+# 📡 API Endpoints
+
+## Authentication
+
+### Register
 
 ```
-http://localhost:5173
+POST /api/auth/register
 ```
 
-Backend:
+### Login
 
 ```
-http://localhost:5000
+POST /api/auth/login
 ```
 
 ---
 
-## 📸 Screenshots
+## AI
 
-### Landing Page
+### Generate Email
 
-> Add Screenshot Here
+```
+POST /api/ai/generate-email
+```
 
----
-
-### Dashboard
-
-> Add Screenshot Here
+Requires JWT Token.
 
 ---
 
-### AI Email Generation
+### Get History
 
-> Add Screenshot Here
+```
+GET /api/ai/history
+```
 
----
-
-### OTP Verification
-
-> Add Screenshot Here
+Requires JWT Token.
 
 ---
 
-## 📌 API Endpoints
+# 🚀 Deployment
 
-### Authentication
+## Frontend
 
-| Method | Endpoint | Description |
-|---------|----------|-------------|
-| POST | `/api/auth/register` | Register User |
-| POST | `/api/auth/verify-otp` | Verify Email |
-| POST | `/api/auth/login` | Login User |
+Vercel
 
----
+## Backend
 
-### AI
+Render
 
-| Method | Endpoint | Description |
-|---------|----------|-------------|
-| POST | `/api/ai/generate-email` | Generate AI Email |
-| GET | `/api/ai/history` | Get Email History |
+## Database
+
+MongoDB Atlas
 
 ---
 
-## 🔒 Authentication Flow
+# 📷 Screenshots
 
-1. User Registration
-2. OTP Verification
-3. Login
-4. JWT Token Generation
-5. Protected AI Routes
-6. Email History Storage
+## Home Page
+
+> Add Screenshot
+
+## Dashboard
+
+> Add Screenshot
+
+## AI Generated Email
+
+> Add Screenshot
 
 ---
 
-## 🚀 Future Improvements
+# 📈 Future Improvements
 
-- AI Tone Selection
-- Multiple AI Models
-- Export Email as PDF
-- One-click Copy
-- Gmail Integration
+- Export generated emails as PDF
+- Copy to Clipboard
 - Email Templates
+- Prompt History Search
 - Dark Mode
-- Multi-language Support
+- Multiple AI Models
+- Email Tone Selection
+- Rich Text Editor
 
 ---
 
-## 💡 Why OutreachAI?
-
-Finding the right words for professional networking can be difficult. OutreachAI helps users generate personalized and professional outreach emails instantly, making job applications and networking more efficient.
-
----
-
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Kush Bhardwaj**
 
-Frontend Developer | MERN Stack Developer
-
-GitHub: https://github.com/kushb645
-
-LinkedIn: https://linkedin.com/in/kushbhardwaj01
-
-Portfolio: https://kush01.vercel.app/
+- GitHub: https://github.com/kushB645
 
 ---
 
-## 📄 License
+# 📄 License
 
 This project is licensed under the MIT License.
